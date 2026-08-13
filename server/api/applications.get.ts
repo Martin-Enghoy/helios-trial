@@ -1,5 +1,6 @@
 import { eq, sql, count, asc, desc } from "drizzle-orm";
-import { APPLICATION_STATUSES, applications, ApplicationStatus } from "../database/schema";
+import { APPLICATION_STATUSES, applications } from "../database/schema";
+import type { ApplicationStatus } from "../database/schema";
 
 // Columns for sorting
 const SORTABLE_COLUMNS = {
