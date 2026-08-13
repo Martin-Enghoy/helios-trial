@@ -140,7 +140,7 @@ const pageNumbers = computed(() => {
           <tr v-for="app in data?.data" :key="app.id" class="hover:bg-gray-50 transition-colors">
             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{ app.name }}</td>
             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ app.currentWork }}</td>
-            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ app.yearsOfExperience }}</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ app.yearsOfExperience }} years</td>
             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ NOTICE_PERIOD_LABELS[app.noticePeriod as keyof typeof NOTICE_PERIOD_LABELS] }}</td>
             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ formatSalary(app.expectedSalary) }}</td>
             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">              
