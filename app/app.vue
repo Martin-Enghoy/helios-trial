@@ -1,8 +1,14 @@
 <script setup lang="ts">
 const showModal = ref(false);
 
+
+// TODO: replace any type with appropriate type
+const listRef = ref<any>(null);
+
 function onApplicationCreated() {
-  console.log('Application created: list will be refreshed here.');
+  if (listRef.value) {
+    listRef.value.refresh();
+  }
 }
 </script>
 
@@ -25,7 +31,7 @@ function onApplicationCreated() {
     
     <!-- Main content -->
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <p class="text-gray-500 text-sm">Application list</p>
+      <ApplicationList ref="listRef" />
     </main>
     
     <!-- Modal -->
