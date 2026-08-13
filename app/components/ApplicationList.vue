@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { NOTICE_PERIOD_LABELS, STATUS_LABELS } from '~~/server/database/schema';
+import { NOTICE_PERIOD_LABELS } from '~~/server/database/schema';
 import type { ApplicationStatus } from '~~/server/database/schema';
 
 const page = ref(1);
@@ -143,11 +143,11 @@ const pageNumbers = computed(() => {
             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ app.yearsOfExperience }}</td>
             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ NOTICE_PERIOD_LABELS[app.noticePeriod as keyof typeof NOTICE_PERIOD_LABELS] }}</td>
             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ formatSalary(app.expectedSalary) }}</td>
-            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-              <!-- Placeholder for #8 -->
-              <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800 border border-gray-200">
-                {{ STATUS_LABELS[app.status as keyof typeof STATUS_LABELS] }}
-              </span>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">              
+              <StatusDropdown
+                :application-id="app.id"
+                :initial-status="(app.status as ApplicationStatus) "
+              />
             </td>
             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ formatDate(app.createdAt) }}</td>
           </tr>
